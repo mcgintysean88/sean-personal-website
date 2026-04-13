@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sean McGinty — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Design Tokens ──────────────────────────────── */
+    :root {
+      --bg:           #F8F5F0;
+      --white:        #FFFFFF;
+      --dark:         #0A1628;
+      --text:         #141E30;
+      --text-mid:     #5C6878;
+      --text-light:   #9AA3AF;
+      --accent:       #1A7A78;
+      --accent-light: #E5F4F4;
+      --accent-warm:  #C87941;
+      --border:       #E2DDD6;
+
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'DM Sans', -apple-system, sans-serif;
+
+      --space-xs:  8px;
+      --space-sm:  16px;
+      --space-md:  24px;
+      --space-lg:  48px;
+      --space-xl:  80px;
+      --space-2xl: 120px;
+      --space-3xl: 160px;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+
+      --transition: 200ms ease;
+      --max-width: 1100px;
+    }
+
+    /* ─── Base ───────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Layout ─────────────────────────────────────── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    section {
+      padding: var(--space-3xl) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: var(--space-lg);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-mid);
+      max-width: 600px;
+      margin-bottom: var(--space-xl);
+      line-height: 1.7;
+    }
+
+    /* ─── Nav ────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(248, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      padding: var(--space-3xl) 0;
+      border-bottom: none;
+    }
+    .hero .container { display: flex; flex-direction: column; gap: var(--space-md); }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-display {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 8vw, 120px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: var(--white);
+      max-width: 900px;
+    }
+    .hero-display em {
+      font-style: italic;
+      color: var(--accent-warm);
+    }
+    .hero-sub {
+      font-size: 20px;
+      color: rgba(255,255,255,0.6);
+      max-width: 540px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .hero-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      margin-top: var(--space-lg);
+      font-style: italic;
+    }
+
+    /* ─── Color Palette ──────────────────────────────── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-md);
+    }
+    .color-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .swatch-block {
+      height: 100px;
+      width: 100%;
+    }
+    .swatch-info {
+      padding: 14px 16px;
+      background: var(--white);
+    }
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .swatch-hex {
+      font-size: 12px;
+      color: var(--text-mid);
+      font-family: 'Courier New', monospace;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .swatch-usage {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* ─── Typography ─────────────────────────────────── */
+    .type-specimen + .type-specimen {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border);
+    }
+    .type-meta {
+      display: flex;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .type-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .type-meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .type-meta-value {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-family: 'Courier New', monospace;
+    }
+    .font-display-sample {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: var(--space-sm);
+    }
+    .font-display-sample em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .font-body-sample {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      max-width: 680px;
+    }
+
+    /* ─── Type Scale ─────────────────────────────────── */
+    .type-scale-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .type-scale-table td {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .type-scale-table tr:last-child td { border-bottom: none; }
+    .scale-label-cell {
+      width: 180px;
+      vertical-align: middle;
+    }
+    .scale-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      display: block;
+    }
+    .scale-specs {
+      font-size: 11px;
+      color: var(--text-light);
+      font-family: 'Courier New', monospace;
+      margin-top: 3px;
+    }
+
+    /* ─── Spacing ────────────────────────────────────── */
+    .spacing-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .spacing-bar-wrap {
+      flex: 1;
+      height: 32px;
+      display: flex;
+      align-items: center;
+    }
+    .spacing-bar {
+      height: 32px;
+      background: var(--accent-light);
+      border: 1.5px solid var(--accent);
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    .spacing-info {
+      display: flex;
+      gap: 24px;
+      width: 280px;
+    }
+    .spacing-token {
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .spacing-value {
+      font-size: 12px;
+      color: var(--text-mid);
+    }
+    .spacing-use {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ─── Buttons ────────────────────────────────────── */
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #155f5e; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--text);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      padding: 14px 0;
+      border-bottom: 1.5px solid var(--accent);
+      border-radius: 0;
+    }
+    .btn-ghost:hover { color: var(--text); border-color: var(--text); }
+    .btn-dark {
+      background: var(--dark);
+      color: var(--white);
+    }
+    .btn-dark:hover { background: var(--text); }
+
+    /* ─── Interaction Principles ─────────────────────── */
+    .interaction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+    .interaction-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+    }
+    .interaction-card h4 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: var(--space-xs);
+    }
+    .interaction-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-mid);
+    }
+    .interaction-demo {
+      margin-top: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--text-light);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ─── Cycling Demo ───────────────────────────────── */
+    .cycling-demo {
+      background: var(--dark);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+    .cycling-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 72px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+    }
+    .cycling-word {
+      color: var(--accent-warm);
+      font-style: italic;
+      display: inline-block;
+      min-width: 320px;
+    }
+    .cycling-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: var(--space-md);
+      font-style: italic;
+    }
+
+    /* ─── Voice & Tone ───────────────────────────────── */
+    .tone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+    }
+    .tone-card {
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid var(--border);
+    }
+    .tone-card.do {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+    .tone-card.dont {
+      background: #fef2f2;
+      border-color: #fca5a5;
+    }
+    .tone-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+    .tone-card.do .tone-card-label { color: var(--accent); }
+    .tone-card.dont .tone-card-label { color: #dc2626; }
+    .tone-example {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: var(--space-sm);
+      padding-left: var(--space-sm);
+      border-left: 2px solid currentColor;
+    }
+    .tone-card.do .tone-example { border-color: var(--accent); }
+    .tone-card.dont .tone-example { border-color: #fca5a5; }
+    .tone-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      padding-left: var(--space-sm);
+    }
+
+    /* ─── Photography ────────────────────────────────── */
+    .photo-principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--space-md);
+    }
+    .photo-principle {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .photo-principle-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: var(--space-xs);
+    }
+    .photo-principle h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .photo-principle p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    .guide-footer {
+      background: var(--dark);
+      padding: var(--space-lg) 0;
+      border-bottom: none;
+    }
+    .guide-footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .guide-footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── Utilities ──────────────────────────────────── */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: var(--space-xl) 0;
+    }
+
+    /* ─── Cycling Text Animation ─────────────────────── */
+    @keyframes fadeSlide {
+      0%   { opacity: 0; transform: translateY(10px); }
+      10%  { opacity: 1; transform: translateY(0); }
+      80%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-10px); }
+    }
+    .cycling-word.animating {
+      animation: fadeSlide 2.5s ease forwards;
+    }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .tone-grid { grid-template-columns: 1fr; }
+      .spacing-info { width: auto; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">Sean McGinty · Brand Guidelines</a>
+      <ul class="nav-links">
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#scale">Type Scale</a></li>
+        <li><a href="#spacing">Spacing</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#interactions">Interactions</a></li>
+        <li><a href="#voice">Voice</a></li>
+        <li><a href="#photography">Photography</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">seanmcginty.me · Brand Guidelines v1.0</p>
+      <h1 class="hero-display">The visual language of <em>a curious marketer.</em></h1>
+      <p class="hero-sub">This document defines the colors, typography, spacing, and principles that make seanmcginty.me feel like a considered, human, and quietly sophisticated place.</p>
+      <p class="hero-note">Informed by: jopecuro.com (motion & scale), brentstirling.com (directness & personality), jasonfaber.ca (warmth & structure)</p>
+    </div>
+  </section>
+
+  <!-- Colors -->
+  <section id="colors">
+    <div class="container">
+      <p class="section-label">01 — Color System</p>
+      <h2 class="section-title">Warm, confident, considered.</h2>
+      <p class="section-desc">A light-mode palette anchored by warm parchment and deep navy. One teal accent does most of the work — used for links, highlights, and interactive states. Warm amber appears sparingly for moments that need energy.</p>
+
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#F8F5F0; border-bottom: 1px solid #e2ddd6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Background</span>
+            <span class="swatch-hex">#F8F5F0</span>
+            <span class="swatch-usage">Page background, warm parchment</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#141E30;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Text Primary</span>
+            <span class="swatch-hex">#141E30</span>
+            <span class="swatch-usage">Headlines, body copy, primary text</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#5C6878;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Text Secondary</span>
+            <span class="swatch-hex">#5C6878</span>
+            <span class="swatch-usage">Subheads, captions, supporting copy</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#9AA3AF;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Text Muted</span>
+            <span class="swatch-hex">#9AA3AF</span>
+            <span class="swatch-usage">Labels, dates, fine print</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#1A7A78;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Accent Teal</span>
+            <span class="swatch-hex">#1A7A78</span>
+            <span class="swatch-usage">Links, CTAs, hover states, highlights</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#E5F4F4; border-bottom: 1px solid #e2ddd6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Accent Light</span>
+            <span class="swatch-hex">#E5F4F4</span>
+            <span class="swatch-usage">Hover backgrounds, tags, subtle fills</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#C87941;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Accent Warm</span>
+            <span class="swatch-hex">#C87941</span>
+            <span class="swatch-usage">Italic cycling text, emphasis, energy moments</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#0A1628;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Dark</span>
+            <span class="swatch-hex">#0A1628</span>
+            <span class="swatch-usage">Hero section, dark backgrounds, footer</span>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-block" style="background:#E2DDD6; border-bottom: 1px solid #ccc;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Border</span>
+            <span class="swatch-hex">#E2DDD6</span>
+            <span class="swatch-usage">Dividers, card borders, rule lines</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section id="typography">
+    <div class="container">
+      <p class="section-label">02 — Typography</p>
+      <h2 class="section-title">Two fonts. One for presence, one for clarity.</h2>
+      <p class="section-desc">DM Serif Display brings warmth, gravitas, and a slightly editorial quality to headlines. DM Sans keeps everything else clean, legible, and modern. Together they feel considered — not corporate.</p>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <div class="type-meta-item">
+            <span class="type-meta-label">Font</span>
+            <span class="type-meta-value">DM Serif Display</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Use</span>
+            <span class="type-meta-value">Hero, section headings, display text</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Source</span>
+            <span class="type-meta-value">Google Fonts (free)</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Weights</span>
+            <span class="type-meta-value">400 Regular, 400 Italic</span>
+          </div>
+        </div>
+        <div class="font-display-sample">I've spent 13 years making<br>marketing <em>impossible to ignore.</em></div>
+        <p style="font-size:13px; color: var(--text-light); font-style: italic; margin-top: 8px;">DM Serif Display, 400 — normal and italic</p>
+      </div>
+
+      <div class="type-specimen">
+        <div class="type-meta">
+          <div class="type-meta-item">
+            <span class="type-meta-label">Font</span>
+            <span class="type-meta-value">DM Sans</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Use</span>
+            <span class="type-meta-value">Navigation, body copy, labels, CTAs, all UI</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Source</span>
+            <span class="type-meta-value">Google Fonts (free)</span>
+          </div>
+          <div class="type-meta-item">
+            <span class="type-meta-label">Weights</span>
+            <span class="type-meta-value">300, 400, 500, 600, 700</span>
+          </div>
+        </div>
+        <p class="font-body-sample">I started my career at a small SEM shop in Charlottesville, Virginia — back when data-driven marketing was something people were figuring out in real time. I learned early that good marketing lives at the intersection of <strong>rigorous analysis</strong> and genuine human understanding.</p>
+        <p style="font-size:13px; color: var(--text-light); font-style: italic; margin-top: 12px;">DM Sans, 400 Regular with 600 Bold</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Type Scale -->
+  <section id="scale">
+    <div class="container">
+      <p class="section-label">03 — Type Scale</p>
+      <h2 class="section-title">Sizes with intention.</h2>
+      <p class="section-desc">Every size has a specific job. The display size is reserved for the cycling hero headline only — use it sparingly and it keeps its power.</p>
+
+      <table class="type-scale-table">
+        <tbody>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">Display</span>
+              <span class="scale-specs">120px / lh 1.0 / ls -3px<br>DM Serif Display 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-display); font-size: clamp(48px, 6vw, 96px); font-weight: 400; line-height: 1.0; letter-spacing: -2px; color: var(--text);">Marketing.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">H1</span>
+              <span class="scale-specs">72px / lh 1.1 / ls -1px<br>DM Serif Display 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-display); font-size: clamp(36px, 5vw, 72px); font-weight: 400; line-height: 1.1; letter-spacing: -1px; color: var(--text);">The longer version</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">H2</span>
+              <span class="scale-specs">48px / lh 1.2 / ls -0.5px<br>DM Serif Display 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.2; letter-spacing: -0.5px; color: var(--text);">Where I've been</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">H3</span>
+              <span class="scale-specs">32px / lh 1.3 / ls normal<br>DM Serif Display 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px); font-weight: 400; line-height: 1.3; color: var(--text);">TaxSlayer · CMO</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">Lead</span>
+              <span class="scale-specs">20px / lh 1.7<br>DM Sans 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-body); font-size: 20px; font-weight: 400; line-height: 1.7; color: var(--text-mid);">I'm always happy to hear from interesting people.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">Body</span>
+              <span class="scale-specs">17px / lh 1.7<br>DM Sans 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-body); font-size: 17px; font-weight: 400; line-height: 1.7; color: var(--text-mid);">Four years across three increasingly senior roles at one of the largest online financial marketplaces in the US.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">Small</span>
+              <span class="scale-specs">14px / lh 1.55<br>DM Sans 400</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.55; color: var(--text-mid);">Built and led a 23-person team across brand, creative, digital, CRM, and product marketing.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="scale-label-cell">
+              <span class="scale-label">Label</span>
+              <span class="scale-specs">11px / lh 1.4 / ls 0.1em<br>DM Sans 600 UPPERCASE</span>
+            </td>
+            <td>
+              <span style="font-family: var(--font-body); font-size: 11px; font-weight: 600; line-height: 1.4; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">01 — Career · TaxSlayer · 2022–Present</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Spacing -->
+  <section id="spacing">
+    <div class="container">
+      <p class="section-label">04 — Spacing</p>
+      <h2 class="section-title">Give things room to breathe.</h2>
+      <p class="section-desc">Generous spacing is one of the clearest signals of a confident, well-considered design. When in doubt, add more space rather than less.</p>
+
+      <div class="spacing-grid">
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 8px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-xs</span>
+            <span class="spacing-value">8px</span>
+            <span class="spacing-use">Icon gaps, tight pairs</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 16px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-sm</span>
+            <span class="spacing-value">16px</span>
+            <span class="spacing-use">Between label and heading</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 24px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-md</span>
+            <span class="spacing-value">24px</span>
+            <span class="spacing-use">Card padding, element gaps</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 48px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-lg</span>
+            <span class="spacing-value">48px</span>
+            <span class="spacing-use">Between components, grid gaps</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 80px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-xl</span>
+            <span class="spacing-value">80px</span>
+            <span class="spacing-use">Sub-section separation</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 120px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-2xl</span>
+            <span class="spacing-value">120px</span>
+            <span class="spacing-use">Section padding (standard)</span>
+          </div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar-wrap"><div class="spacing-bar" style="width: 160px;"></div></div>
+          <div class="spacing-info">
+            <span class="spacing-token">--space-3xl</span>
+            <span class="spacing-value">160px</span>
+            <span class="spacing-use">Hero padding, major sections</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 400; margin-bottom: var(--space-md);">Layout rules</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-md);">
+        <div>
+          <span class="scale-label" style="display:block; margin-bottom: 6px;">Max content width</span>
+          <span style="font-size: 22px; font-family: var(--font-display); color: var(--text);">1,100px</span>
+          <p style="font-size:13px; color: var(--text-light); margin-top:4px;">Centered, padded 48px on sides</p>
+        </div>
+        <div>
+          <span class="scale-label" style="display:block; margin-bottom: 6px;">Body text max width</span>
+          <span style="font-size: 22px; font-family: var(--font-display); color: var(--text);">660px</span>
+          <p style="font-size:13px; color: var(--text-light); margin-top:4px;">For readable paragraphs (~65–70 chars/line)</p>
+        </div>
+        <div>
+          <span class="scale-label" style="display:block; margin-bottom: 6px;">Mobile breakpoint</span>
+          <span style="font-size: 22px; font-family: var(--font-display); color: var(--text);">768px</span>
+          <p style="font-size:13px; color: var(--text-light); margin-top:4px;">Single column, 24px side padding</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section id="components">
+    <div class="container">
+      <p class="section-label">05 — Components</p>
+      <h2 class="section-title">Buttons & CTAs</h2>
+      <p class="section-desc">Four button styles. Primary for the main action. Secondary for less urgent choices. Ghost for inline navigation. Dark for use on light sections when emphasis is needed.</p>
+
+      <div class="button-grid">
+        <a class="btn btn-primary" href="#">Let's connect</a>
+        <a class="btn btn-secondary" href="#">Read my story</a>
+        <a class="btn btn-ghost" href="#">View LinkedIn →</a>
+        <a class="btn btn-dark" href="#">Download resume</a>
+      </div>
+
+      <hr class="divider">
+
+      <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 400; margin-bottom: var(--space-md);">Tags & Labels</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+        <span class="tag">CMO</span>
+        <span class="tag">Growth Strategy</span>
+        <span class="tag">AI Marketing</span>
+        <span class="tag">Charleston, SC</span>
+        <span class="tag">2022–Present</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactions -->
+  <section id="interactions">
+    <div class="container">
+      <p class="section-label">06 — Interactions & Motion</p>
+      <h2 class="section-title">Motion as meaning.</h2>
+      <p class="section-desc">Animations should feel smooth and purposeful — never decorative for its own sake. Motion signals that this site was built with intention, which is the whole point.</p>
+
+      <!-- Cycling Demo -->
+      <div class="cycling-demo">
+        <p class="cycling-headline">
+          I've spent 13 years making marketing<br>
+          <span class="cycling-word" id="cycleWord">smarter.</span>
+        </p>
+        <p class="cycling-note">↑ Signature interaction: cycling words animate on a 2.5s loop. This is the first thing visitors see.</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="interaction-grid">
+        <div class="interaction-card">
+          <h4>Cycling Headline</h4>
+          <p>The hero headline cycles through 4 words — "smarter", "faster", "more human", "harder to ignore" — on a fade + slide animation. This is the signature creative element borrowed from jopecuro.com.</p>
+          <div class="interaction-demo">animation: fadeSlide 2.5s ease<br>transform: translateY(10px → 0)</div>
+        </div>
+        <div class="interaction-card">
+          <h4>Scroll Reveal</h4>
+          <p>Sections and major content blocks fade in and slide up slightly as they enter the viewport. Use an IntersectionObserver with a 100ms stagger for child elements.</p>
+          <div class="interaction-demo">opacity: 0 → 1<br>transform: translateY(24px → 0)<br>transition: 500ms ease<br>stagger: 100ms</div>
+        </div>
+        <div class="interaction-card">
+          <h4>Hover States</h4>
+          <p>All interactive elements have subtle hover states. Links gain a teal underline. Cards lift slightly. Buttons shift one shade darker. Never abrupt — always 200ms ease.</p>
+          <div class="interaction-demo">transition: all 200ms ease<br>links: color → var(--accent)<br>cards: box-shadow lift</div>
+        </div>
+        <div class="interaction-card">
+          <h4>Smooth Scroll</h4>
+          <p>Navigation links scroll the page smoothly to sections. This is set at the HTML level with <code>scroll-behavior: smooth</code> and reinforced with scroll-margin on section anchors.</p>
+          <div class="interaction-demo">html { scroll-behavior: smooth }<br>section { scroll-margin-top: 80px }</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice & Tone -->
+  <section id="voice">
+    <div class="container">
+      <p class="section-label">07 — Voice & Tone</p>
+      <h2 class="section-title">Sound like a person, not a profile.</h2>
+      <p class="section-desc">The copy on this site should read like Sean wrote it — warm, direct, smart, with a bit of wit. Not like a resume. Not like a LinkedIn headline. Borrowed from brentstirling.com's personality-first approach.</p>
+
+      <div class="tone-grid">
+        <div class="tone-card do">
+          <p class="tone-card-label">✓ Do</p>
+          <p class="tone-example">"I like problems that seem complicated until they're not."</p>
+          <p class="tone-sub">Specific, personal, shows a way of thinking</p>
+          <hr style="border-color: var(--accent); opacity: 0.2; margin: 16px 0;">
+          <p class="tone-example">"We protected unit economics. We kept partner relationships intact."</p>
+          <p class="tone-sub">Active, short, result-oriented</p>
+          <hr style="border-color: var(--accent); opacity: 0.2; margin: 16px 0;">
+          <p class="tone-example">"I'm in the early stages of building something around that. More on that soon."</p>
+          <p class="tone-sub">Honest and forward-looking without overselling</p>
+        </div>
+        <div class="tone-card dont">
+          <p class="tone-card-label">✗ Don't</p>
+          <p class="tone-example">"Results-driven marketing executive with a passion for leveraging data-driven insights."</p>
+          <p class="tone-sub">Jargon-stuffed, sounds like a resume</p>
+          <hr style="border-color: #fca5a5; opacity: 0.4; margin: 16px 0;">
+          <p class="tone-example">"I help brands unlock transformative growth through innovative AI-powered solutions."</p>
+          <p class="tone-sub">Buzzwords, says nothing specific</p>
+          <hr style="border-color: #fca5a5; opacity: 0.4; margin: 16px 0;">
+          <p class="tone-example">"Thought leader, innovator, and change agent with 13+ years of experience."</p>
+          <p class="tone-sub">Self-congratulatory and generic</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photography -->
+  <section id="photography">
+    <div class="container">
+      <p class="section-label">08 — Photography</p>
+      <h2 class="section-title">Natural, not staged.</h2>
+      <p class="section-desc">The existing headshot sets the right tone: genuine smile, clean shirt, neutral background — approachable but polished. Any additional photography should maintain that standard.</p>
+
+      <div class="photo-principles">
+        <div class="photo-principle">
+          <div class="photo-principle-icon">☀️</div>
+          <h4>Natural light preferred</h4>
+          <p>Avoid harsh studio lighting. Soft, diffused natural light reads as warm and authentic.</p>
+        </div>
+        <div class="photo-principle">
+          <div class="photo-principle-icon">🎯</div>
+          <h4>Neutral or textured backgrounds</h4>
+          <p>The existing headshot's muted concrete wall is ideal. Avoid busy backgrounds or distracting environments.</p>
+        </div>
+        <div class="photo-principle">
+          <div class="photo-principle-icon">👤</div>
+          <h4>Genuine expression</h4>
+          <p>Candid > posed. A real smile beats a forced one every time. The site is personal — the photo should be too.</p>
+        </div>
+        <div class="photo-principle">
+          <div class="photo-principle-icon">🌊</div>
+          <h4>Charleston context</h4>
+          <p>If location shots are used (lifestyle, context), Charleston's coastal character is a natural fit — low-key, not clichéd.</p>
+        </div>
+        <div class="photo-principle">
+          <div class="photo-principle-icon">🎨</div>
+          <h4>Consistent color treatment</h4>
+          <p>If photos are edited, apply a consistent warm-neutral grade. Avoid heavy filters or high-saturation edits.</p>
+        </div>
+        <div class="photo-principle">
+          <div class="photo-principle-icon">📐</div>
+          <h4>Headshot usage</h4>
+          <p>Primary use: About section, large and prominent. Can appear smaller in the hero or nav. Do not crop tightly — give the photo breathing room.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="guide-footer">
+    <div class="container">
+      <p>seanmcginty.me · Brand Guidelines v1.0 · April 2026</p>
+      <p>Built as Phase 1 of the personal website project</p>
+    </div>
+  </section>
+
+  <script>
+    // Cycling headline animation
+    const words = ['smarter.', 'faster.', 'more human.', 'harder to ignore.'];
+    let i = 0;
+    const el = document.getElementById('cycleWord');
+
+    function cycleWord() {
+      el.classList.remove('animating');
+      void el.offsetWidth; // reflow to restart animation
+      i = (i + 1) % words.length;
+      el.textContent = words[i];
+      el.classList.add('animating');
+    }
+
+    el.classList.add('animating');
+    setInterval(cycleWord, 2500);
+  </script>
+
+</body>
+</html>
