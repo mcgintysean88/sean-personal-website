@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sean McGinty — CMO and growth strategist based in Charleston, SC. 13 years building marketing machines across fintech and financial services.">
+  <meta property="og:title" content="Sean McGinty">
+  <meta property="og:description" content="CMO and growth strategist. 13 years building marketing machines across fintech and financial services.">
+  <meta property="og:url" content="https://seanmcginty.me">
+  <title>Sean McGinty</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Reset ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Tokens ───────────────────────────────────────────── */
+    :root {
+      --bg:           #F8F5F0;
+      --white:        #FFFFFF;
+      --dark:         #0A1628;
+      --text:         #141E30;
+      --text-mid:     #5C6878;
+      --text-light:   #9AA3AF;
+      --accent:       #1A7A78;
+      --accent-light: #E5F4F4;
+      --accent-warm:  #C87941;
+      --border:       #E2DDD6;
+      --font-serif:   'DM Serif Display', Georgia, serif;
+      --font-sans:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-w:        1100px;
+      --gutter:       clamp(24px, 5vw, 72px);
+    }
+
+    /* ─── Base ─────────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* ─── Scroll Reveal ────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 80ms;  }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+    .delay-4 { transition-delay: 320ms; }
+
+    /* ─── Nav ──────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 22px 0;
+      transition: background 300ms ease, border-color 300ms ease, padding 300ms ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(248, 245, 240, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--border);
+      padding: 14px 0;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--white);
+      letter-spacing: -0.2px;
+      transition: color 300ms ease;
+    }
+    .nav.scrolled .nav-logo { color: var(--text); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      transition: color 200ms ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav.scrolled .nav-links a { color: var(--text-mid); }
+    .nav.scrolled .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 140px 0 120px;
+    }
+    .hero-content { display: flex; flex-direction: column; gap: 24px; max-width: 920px; }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(46px, 7.5vw, 106px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.03;
+      letter-spacing: -2.5px;
+    }
+    .cycling-word {
+      color: var(--accent-warm);
+      font-style: italic;
+      display: inline-block;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .cycling-word.out {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    @keyframes wordIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cycling-word.in { animation: wordIn 0.32s ease forwards; }
+
+    .hero-sub {
+      font-size: clamp(17px, 2.2vw, 21px);
+      color: rgba(255,255,255,0.5);
+      max-width: 540px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 30px;
+      background: var(--accent);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: 3px;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+    .btn-primary:hover { background: #145f5d; transform: translateY(-1px); }
+    .btn-ghost {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.6); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 44px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.2);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+      50%       { opacity: 1;   transform: scaleY(1); }
+    }
+
+    /* ─── Section Shared ───────────────────────────────────── */
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+    .section-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+
+    /* ─── About ────────────────────────────────────────────── */
+    #about {
+      padding: clamp(80px, 12vw, 160px) 0;
+      border-top: 1px solid var(--border);
+    }
+    .about-grid {
+      margin-top: 20px;
+    }
+    .about-grid::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .about-photo {
+      float: right;
+      width: 320px;
+      margin-left: 64px;
+      margin-bottom: 32px;
+    }
+
+    .about-photo-sticky { position: sticky; top: 110px; }
+    .about-photo-sticky img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      filter: grayscale(100%);
+      transition: filter 0.45s ease, transform 0.35s ease;
+      will-change: filter, transform;
+    }
+    .about-photo-sticky:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.025);
+    }
+
+    .about-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 36px;
+    }
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.82;
+      color: var(--text-mid);
+      margin-bottom: 22px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ─── Personal ─────────────────────────────────────────── */
+    .personal-section {
+      margin-top: 88px;
+      padding-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+    .personal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .personal-text p {
+      font-size: 17px;
+      line-height: 1.82;
+      color: var(--text-mid);
+      margin-bottom: 22px;
+    }
+    .personal-text p:last-child { margin-bottom: 0; }
+    .personal-photos { display: flex; flex-direction: column; gap: 14px; }
+    .personal-photos img {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    /* ─── Reading ──────────────────────────────────────────── */
+    .reading-intro {
+      font-size: 17px;
+      line-height: 1.82;
+      color: var(--text-mid);
+      margin-top: 16px;
+      margin-bottom: 36px;
+      max-width: 640px;
+    }
+    .reading-section {
+      margin-top: 80px;
+      padding-top: 72px;
+      border-top: 1px solid var(--border);
+    }
+    .reading-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      margin-bottom: 52px;
+    }
+    .book-item {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--text-mid);
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+    .book-title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text);
+      font-size: 16px;
+    }
+    .book-author { font-size: 13px; color: var(--text-light); }
+
+    /* ─── Following Cards ──────────────────────────────────── */
+    .following-section {
+      margin-top: 88px;
+      padding-top: 80px;
+      border-top: 1px solid var(--border);
+    }
+    .following-intro {
+      font-size: 17px;
+      line-height: 1.82;
+      color: var(--text-mid);
+      margin-top: 16px;
+      margin-bottom: 32px;
+      max-width: 640px;
+    }
+    .following-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .following-card {
+      display: block;
+      text-decoration: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+    }
+    .following-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 24px rgba(10, 22, 40, 0.08);
+      transform: translateY(-3px);
+    }
+    .card-type {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-bottom: 14px;
+    }
+    .card-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1.2;
+    }
+    .card-pub {
+      font-size: 13px;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .card-take {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-mid);
+    }
+
+    /* ─── Career ───────────────────────────────────────────── */
+    #career {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: clamp(80px, 12vw, 160px) 0;
+    }
+    #career .section-headline { margin-bottom: 60px; }
+
+    .career-list { display: flex; flex-direction: column; }
+    .career-entry {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .career-entry:first-child { padding-top: 0; }
+    .career-entry:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .career-meta { padding-top: 3px; }
+    .career-company {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .career-years {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+    .career-note {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .career-roles { display: flex; flex-direction: column; gap: 3px; margin-bottom: 14px; }
+    .career-role { font-size: 15px; font-weight: 500; color: var(--text); }
+    .career-role-sub { font-size: 13px; color: var(--text-light); font-weight: 400; }
+    .career-desc { font-size: 15px; line-height: 1.78; color: var(--text-mid); }
+
+    .career-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .career-photos img {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    /* ─── Connect ──────────────────────────────────────────── */
+    #connect {
+      background: var(--dark);
+      padding: clamp(80px, 12vw, 160px) 0;
+    }
+    #connect .section-label { color: rgba(255,255,255,0.28); }
+
+    .connect-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(56px, 10vw, 120px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 36px;
+    }
+    .connect-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.45);
+      max-width: 500px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 64px;
+    }
+
+    .connect-links { display: flex; flex-direction: column; }
+    .connect-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.55);
+      font-size: 19px;
+      transition: color 200ms ease, padding-left 200ms ease;
+      cursor: pointer;
+    }
+    .connect-link:first-of-type { border-top: 1px solid rgba(255,255,255,0.08); }
+    .connect-link:hover { color: var(--white); padding-left: 10px; }
+    .connect-link-left { display: flex; flex-direction: column; gap: 3px; }
+    .connect-platform {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+    }
+    .connect-arrow {
+      font-size: 22px;
+      color: rgba(255,255,255,0.18);
+      transition: transform 200ms ease, color 200ms ease;
+    }
+    .connect-link:hover .connect-arrow { transform: translateX(6px); color: var(--accent); }
+
+    /* ─── Footer ───────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.18); }
+
+    /* ─── Mobile ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-photo { order: 0; }
+      .about-text  { order: 1; }
+      .about-photo-sticky {
+        position: static;
+        max-width: 260px;
+      }
+      .personal-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .following-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reading-grid {
+        grid-template-columns: 1fr;
+      }
+      .career-entry {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .career-photos { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero-headline { letter-spacing: -1.5px; }
+      .connect-headline { letter-spacing: -2px; }
+      .following-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">Sean McGinty</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Charleston, SC &nbsp;·&nbsp; seanmcginty.me</p>
+        <h1 class="hero-headline">
+          I make businesses<br>
+          <span class="cycling-word" id="cycling-word">smarter.</span>
+        </h1>
+        <p class="hero-sub">I'm Sean McGinty — a CMO and growth strategist. I've spent my career at the intersection of marketing, data, and technology. I'm curious about what comes next.</p>
+        <div class="hero-ctas">
+          <a href="#connect" class="btn-primary">Let's connect</a>
+          <a href="#about" class="btn-ghost">Read my story &rarr;</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll</div>
+  </section>
+
+  <!-- ── About ──────────────────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <span class="section-label reveal">01 — About</span>
+
+      <div class="about-grid">
+
+        <!-- Photo (first in DOM → top on mobile, right on desktop) -->
+        <div class="about-photo reveal delay-2">
+          <div class="about-photo-sticky">
+            <img src="Sean Headshot.jpg" alt="Sean McGinty" width="320" height="427">
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <h2 class="reveal">The longer version</h2>
+
+          <p class="reveal delay-1">I started my career at RKG — a boutique SEM firm in Charlottesville, Virginia — back when "data-driven marketing" was something people were figuring out in real time. I learned early that good marketing lives at the intersection of rigorous analysis and genuine human understanding. That combination became my thing.</p>
+
+          <p class="reveal">From RKG I moved through a series of increasingly complex marketing challenges. At SnapCap, a fast-growing innovator in small business lending, I was the only marketer. I built systems from scratch supporting acquisition, retention, and analytics, and helped grow the business to acquisition by LendingTree in 2017. That experience gave me something I've leaned on ever since: confidence that you can build a lot with very little, if you're focused.</p>
+
+          <p class="reveal">LendingTree was a different kind of education. I ran product marketing for a six-product consumer portfolio including credit cards, personal loans, and business lending — and in Q1 2020, COVID hit while I was in the middle of it. Category revenues fell 80–87% in a single quarter. No playbook. We replaced conventional planning cycles with a daily performance trading cadence, making real-time budget and channel decisions on evolving data. We protected unit economics. We kept partner relationships intact. It was the hardest professional period I've had, and the most instructive.</p>
+
+          <p class="reveal">Later at LendingTree I moved into Marketing Operations, where I supported the the integration of 13 acquisitions into a unified MarTech and revenue stack. It was there that I became genuinely obsessed with the infrastructure underneath marketing — the data pipelines, the measurement architecture, the stack that either unlocks or limits what's possible.</p>
+
+          <p class="reveal">That obsession followed me to TaxSlayer, where I now serve as CMO, leading a team of 23 across brand, creative, digital, lifecycle, and product marketing. I joined following the company's acquisition by Marlin Equity Partners. In my time with TaxSlayer, I have been focused on building the 'Marketing Machine' — transitioning the marketing function into a modern, data-driven enterprise built to scale.</p>
+
+          <p class="reveal">Lately, I've been paying close attention to AI — what it can actually do for marketing, where it creates real leverage, and where the hype outruns the reality. I spend my free time researching, learning, and tinkering. What you are looking at is part of that process.</p>
+        </div>
+
+      </div>
+
+      <!-- Personal -->
+      <div class="personal-section">
+        <span class="section-label reveal">Beyond the work</span>
+        <div class="personal-grid">
+          <div class="personal-text">
+            <p class="reveal">I live in Mt. Pleasant, SC with family, dogs (Bubba and Honey), and cat (Fern). We love Charleston and the Lowcountry... even with the no-see-ums and humidity. Our favorite thing is to spend our weekends by or on the water. We are 5 minutes from Sullivan's Island, are members of Freedom Boat Club, and have a community dock that we stroll down regularly.</p>
+            <p class="reveal">My wife, Hannah, and daughter, Jane, are the center of my life. Becoming a father has sharpened my priorities; being a good husband and dad is my primary focus outside of work. Taking Jane to a local park to play with friends or on our special neighborhood nature trail walk is a key part of our daily routine.</p>
+            <p class="reveal">Maintaining my health and being active is important to me. Most days start with some form of exercise and it helps ground me for the day to come. I lift weights and have a setup in the garage that I prefer to use. I do yoga a couple of times a week — it's one of those things I was skeptical of and now can't imagine not doing.</p>
+          </div>
+
+          <div class="personal-photos reveal delay-1">
+            <img src="photos/family_snee.jpeg" alt="Family" loading="lazy" style="object-position: 50% 25%;">
+            <img src="photos/honey_bubba_sidwalk.jpeg" alt="Honey and Bubba" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Following -->
+      <div class="following-section">
+        <span class="section-label reveal">Staying current on</span>
+        <p class="following-intro reveal delay-1">I believe staying sharp means staying curious. These are the people I return to consistently — for sharp analysis, honest takes, and thinking that actually changes how I see things.</p>
+        <div class="following-cards reveal delay-2">
+          <a class="following-card" href="https://www.econlib.org/econtalk/" target="_blank" rel="noopener">
+            <span class="card-type">Podcast</span>
+            <span class="card-name">Russ Roberts</span>
+            <span class="card-pub">EconTalk</span>
+            <span class="card-take">Long-form conversations on economics, incentives, and how the world actually works. One of the best interviewers on the internet.</span>
+          </a>
+          <a class="following-card" href="https://stratechery.com/" target="_blank" rel="noopener">
+            <span class="card-type">Newsletter</span>
+            <span class="card-name">Ben Thompson</span>
+            <span class="card-pub">Stratechery</span>
+            <span class="card-take">The sharpest ongoing analysis of tech strategy and business models anywhere. Required reading if you think about markets.</span>
+          </a>
+          <a class="following-card" href="https://mobiledevmemo.com/" target="_blank" rel="noopener">
+            <span class="card-type">Newsletter</span>
+            <span class="card-name">Eric Seufert</span>
+            <span class="card-pub">Mobile Dev Memo</span>
+            <span class="card-take">Deep, technical takes on digital advertising economics and attribution. No fluff — the real mechanics of how digital marketing works.</span>
+          </a>
+          <a class="following-card" href="https://chiefmartec.com/" target="_blank" rel="noopener">
+            <span class="card-type">Blog</span>
+            <span class="card-name">Scott Brinker</span>
+            <span class="card-pub">chiefmartec</span>
+            <span class="card-take">The definitive lens on the MarTech landscape — who's building what and what it means for how modern marketing gets done.</span>
+          </a>
+          <a class="following-card" href="https://www.founderspodcast.com/" target="_blank" rel="noopener">
+            <span class="card-type">Podcast</span>
+            <span class="card-name">David Senra</span>
+            <span class="card-pub">Founders</span>
+            <span class="card-take">Obsessive, research-driven deep dives into the decisions of history's great founders. Consistently one of the best podcasts I've found.</span>
+          </a>
+          <a class="following-card" href="https://www.lennysnewsletter.com/podcast" target="_blank" rel="noopener">
+            <span class="card-type">Podcast</span>
+            <span class="card-name">Lenny Rachitsky</span>
+            <span class="card-pub">Lenny's Podcast</span>
+            <span class="card-take">Honest, practical conversations on product, growth, and what actually works in modern companies. Always leaves me with something actionable.</span>
+          </a>
+          <a class="following-card" href="https://www.lennysnewsletter.com/s/how-i-ai" target="_blank" rel="noopener">
+            <span class="card-type">Podcast</span>
+            <span class="card-name">Claire Vo</span>
+            <span class="card-pub">How I AI</span>
+            <span class="card-take">Real talk on how AI is changing the way product and marketing teams actually work. Ahead of the curve and worth every minute.</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Reading -->
+      <div class="reading-section">
+        <span class="section-label reveal">What I'm reading</span>
+        <p class="reading-intro reveal delay-1">My reading tends toward adventure, history, and big personalities. I'm drawn to stories of people operating under pressure — explorers, leaders, and the occasional con artist. If a book can make me feel like I'm there, I'm in. A few of my favorite titles from over the years are listed.</p>
+
+        <div class="reading-grid reveal delay-2">
+          <div class="book-item"><span class="book-title">Endurance</span><span class="book-author">— Alfred Lansing</span></div>
+          <div class="book-item"><span class="book-title">River of Doubt</span><span class="book-author">— Candice Millard</span></div>
+          <div class="book-item"><span class="book-title">Undaunted Courage</span><span class="book-author">— Stephen Ambrose</span></div>
+          <div class="book-item"><span class="book-title">The Great Santini</span><span class="book-author">— Pat Conroy</span></div>
+          <div class="book-item"><span class="book-title">Prince of Tides</span><span class="book-author">— Pat Conroy</span></div>
+          <div class="book-item"><span class="book-title">Titan</span><span class="book-author">— Ron Chernow</span></div>
+          <div class="book-item"><span class="book-title">Devil in the White City</span><span class="book-author">— Erik Larson</span></div>
+          <div class="book-item"><span class="book-title">Rebel Yell</span><span class="book-author">— S.C. Gwynne</span></div>
+          <div class="book-item"><span class="book-title">Thinking in Bets</span><span class="book-author">— Annie Duke</span></div>
+          <div class="book-item"><span class="book-title">Zero to One</span><span class="book-author">— Peter Thiel</span></div>
+          <div class="book-item"><span class="book-title">A Mapmaker's Wife</span><span class="book-author">— Robert Whitaker</span></div>
+          <div class="book-item"><span class="book-title">Jackpot</span><span class="book-author">— Jason Ryan</span></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Career ─────────────────────────────────────────── -->
+  <section id="career">
+    <div class="container">
+      <span class="section-label reveal">02 — Career</span>
+      <h2 class="section-headline reveal delay-1">Where I've been</h2>
+
+      <div class="career-list">
+
+        <!-- TaxSlayer -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">TaxSlayer</p>
+            <p class="career-years">2022–Present</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">Chief Marketing Officer</span>
+              <span class="career-role-sub">Previously Head of Digital Marketing · 2022–2023</span>
+            </div>
+            <p class="career-desc">Led the marketing transformation of TaxSlayer following its acquisition by Marlin Equity Partners — transitioning from a family-led model to a data-driven, scalable enterprise. Built and led a 23-person team across brand, creative, digital, CRM, and product marketing. Architected a Snowflake-based Single Source of Truth, deployed multi-touch attribution and incrementality measurement, and significantly increased the ROI of sponsorship events including the TaxSlayer Gator Bowl.</p>
+          </div>
+        </div>
+
+        <!-- RateQuote -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">RateQuote</p>
+            <p class="career-years">2021–2022</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">VP, Operations</span>
+            </div>
+            <p class="career-desc">Led end-to-end product strategy, technology selection, and team building for a multi-vertical insurance comparison platform.</p>
+          </div>
+        </div>
+
+        <!-- LendingTree -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">LendingTree</p>
+            <p class="career-years">2017–2021</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">Sr. Director, Marketing Operations &amp; Technology</span>
+              <span class="career-role">Director, Product Marketing — Consumer</span>
+              <span class="career-role">Director, Product Marketing — Small Business</span>
+            </div>
+            <p class="career-desc">Four years across three increasingly senior roles at one of the largest online financial marketplaces in the US. Navigated a $300M consumer marketing portfolio through COVID's peak volatility — replacing conventional planning with a daily performance trading cadence when category revenues fell 80–87% in a single quarter. Architected the integration of 13 acquisitions into a unified MarTech stack. Grew the small business lending product from &lt;$25M to $75M ARR.</p>
+          </div>
+        </div>
+
+        <!-- SnapCap -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">SnapCap</p>
+            <p class="career-years">2016–2017</p>
+            <p class="career-note">Acquired by LendingTree</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">SVP Marketing &amp; Online Strategy</span>
+            </div>
+            <p class="career-desc">Sole marketer at a fast-growing small business lender. Built acquisition, retention, and acquisition analytics from scratch across SEM, paid social, programmatic, and lifecycle channels. The company was acquired by LendingTree in 2017.</p>
+          </div>
+        </div>
+
+        <!-- Merkle / RKG -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">Merkle / RKG</p>
+            <p class="career-years">2011–2016</p>
+            <p class="career-note">RKG acquired by Merkle</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">Senior Manager, SEM</span>
+              <span class="career-role">Senior Analyst, SEM</span>
+            </div>
+            <p class="career-desc">Started as an analyst at RKG (Rimm-Kaufman Group), one of the most respected performance marketing firms in the industry. Developed expertise in data-driven digital strategy managing enterprise-level accounts, and stayed through RKG's acquisition by Merkle.</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="career-entry reveal">
+          <div class="career-meta">
+            <p class="career-company">Education</p>
+            <p class="career-years">2011</p>
+          </div>
+          <div class="career-body">
+            <div class="career-roles">
+              <span class="career-role">University of Virginia</span>
+            </div>
+            <p class="career-desc">Bachelor of Arts in Economics, College of Arts and Sciences.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Connect ────────────────────────────────────────── -->
+  <section id="connect">
+    <div class="container">
+      <span class="section-label reveal">03 — Connect</span>
+      <h2 class="connect-headline reveal">Say<br>hello.</h2>
+      <p class="connect-sub reveal delay-1">I'm always happy to hear from interesting people — former colleagues, people thinking about similar problems, or anyone who wants to compare notes on where marketing is heading.</p>
+
+      <div class="connect-links reveal delay-2">
+
+        <a href="https://www.linkedin.com/in/sean-mcginty/" target="_blank" rel="noopener noreferrer" class="connect-link">
+          <div class="connect-link-left">
+            <span class="connect-platform">Professional</span>
+            <span>LinkedIn</span>
+          </div>
+          <span class="connect-arrow">→</span>
+        </a>
+
+        <a href="https://x.com/mcgintySean" target="_blank" rel="noopener noreferrer" class="connect-link">
+          <div class="connect-link-left">
+            <span class="connect-platform">Thoughts</span>
+            <span>X / Twitter</span>
+          </div>
+          <span class="connect-arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com/gintygrams/" target="_blank" rel="noopener noreferrer" class="connect-link">
+          <div class="connect-link-left">
+            <span class="connect-platform">Life</span>
+            <span>Instagram</span>
+          </div>
+          <span class="connect-arrow">→</span>
+        </a>
+
+        <!-- Email: constructed by JS, never in plain HTML -->
+        <div class="connect-link" id="email-link">
+          <div class="connect-link-left">
+            <span class="connect-platform">Direct</span>
+            <span id="email-display">Email</span>
+          </div>
+          <span class="connect-arrow">→</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2026 Sean McGinty</p>
+      <p>seanmcginty.me</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Cycling Headline ─────────────────────────────────── */
+    const WORDS = ['smarter.', 'faster.', 'harder to ignore.'];
+    let wordIdx = 0;
+    const wordEl = document.getElementById('cycling-word');
+
+    function nextWord() {
+      wordEl.classList.add('out');
+      setTimeout(() => {
+        wordIdx = (wordIdx + 1) % WORDS.length;
+        wordEl.textContent = WORDS[wordIdx];
+        wordEl.classList.remove('out');
+        wordEl.classList.add('in');
+        setTimeout(() => wordEl.classList.remove('in'), 380);
+      }, 300);
+    }
+
+    setInterval(nextWord, 2800);
+
+    /* ── Scroll Reveal ────────────────────────────────────── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── Nav on Scroll ────────────────────────────────────── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 56);
+    }, { passive: true });
+
+    /* ── Email Obfuscation ────────────────────────────────── */
+    const u = 'smmcginty';
+    const d = 'gmail' + '.' + 'com';
+    const address = u + '@' + d;
+    const emailDisplay = document.getElementById('email-display');
+    const emailLink   = document.getElementById('email-link');
+
+    emailDisplay.textContent = address;
+    emailLink.style.cursor = 'pointer';
+    emailLink.addEventListener('click', () => { window.location.href = 'mailto:' + address; });
+  </script>
+
+</body>
+</html>
